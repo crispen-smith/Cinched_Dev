@@ -1,0 +1,14 @@
+{
+  "name": "eventie",
+  "version": "1.0.3",
+  "main": "eventie.js",
+  "description": "event binding helper",
+  "gitHead": "5db5573bc20ab4573d3c12560304a05111b2546a",
+  "readme": "# eventie - event binding helper\r\n\r\nMakes dealing with events in IE8 bearable. Supported by IE8+ and good browsers.\r\n\r\n``` js\r\nvar elem = document.querySelector('#my-elem');\r\nfunction onElemClick( event ) {\r\n  console.log( event.type + ' just happened on #' + event.target.id );\r\n  // -> click just happened on #my-elem\r\n}\r\n\r\neventie.bind( elem, 'click', onElemClick );\r\n\r\neventie.unbind( elem, 'click', onElemClick );\r\n```\r\n\r\n## Bower\r\n\r\neventie is a [Bower](http://bower.io) component.\r\n\r\n``` bash\r\nbower install desandro/eventie\r\n```\r\n\r\n## IE 8\r\n\r\neventie add support for `event.target` and [`.handleEvent` method](https://developer.mozilla.org/en-US/docs/DOM/EventListener#handleEvent(\\)) for Internet Explorer 8.\r\n",
+  "readmeFilename": "README.md",
+  "_id": "eventie@1.0.3",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/desandro/eventie.git"
+  }
+}

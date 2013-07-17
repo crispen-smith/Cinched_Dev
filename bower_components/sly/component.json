@@ -1,0 +1,26 @@
+{
+  "name": "sly",
+  "description": "One-directional scrolling with item based navigation support.",
+  "version": "1.0.1",
+  "date": "2013-06-08 18:03:48 +00:00",
+  "homepage": "https://github.com/Darsain/sly",
+  "main": "./dist/sly.js",
+  "dependencies": {
+    "jquery": ">=1.7"
+  },
+  "bugs": "https://github.com/Darsain/sly/issues",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Darsain/sly.git"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://opensource.org/licenses/MIT"
+    }
+  ],
+  "gitHead": "1812a3387371456351eadbec05eeee91353cc4db",
+  "readme": "# [Sly](http://darsa.in/sly)\r\n\r\nJavaScript library for one-directional scrolling with item based navigation support.\r\n\r\nSly supports navigation with:\r\n\r\n- mouse wheel scrolling\r\n- scrollbar (dragging the handle or clicking on scrollbar)\r\n- pages bar\r\n- various navigation buttons\r\n- content dragging with mouse or touch\r\n- automated cycling by items or pages\r\n- lots of super useful methods\r\n\r\n... and has a powerful & developer friendly API!\r\n\r\nThat's all build around a custom [highly optimized animation rendering](http://i.imgur.com/nszjJBZ.png) with\r\nrequestAnimationFrame, and GPU accelerated positioning with fallbacks for browsers that don't support it.\r\n\r\n#### Dependencies\r\n\r\n- jQuery 1.7+\r\n\r\nThats it. You don't need 200kB of jQuery-UI to Sly :)\r\n\r\n#### Compatibility\r\n\r\nWorks everywhere, even in IE6+ abominations, but that is a complete accident :) IE 6-7 are not officially supported.\r\n\r\n*Mobile:* Sly has a touch support, but mobile is not tested. If you want to help with that, you are welcome!\r\n\r\n### [Changelog](https://github.com/Darsain/sly/wiki/Changelog)\r\n\r\nSly upholds the [Semantic Versioning Specification](http://semver.org/).\r\n\r\n### [Forum](https://groups.google.com/d/forum/sly-js)\r\n\r\n**Please do not populate Issues tracker with non-issues!** If you have a question about Sly, you can use the\r\n**[Sly forum](https://groups.google.com/d/forum/sly-js)**.\r\n\r\n## Installation\r\n\r\nYou can install with [Bower](http://twitter.github.io/bower):\r\n\r\n```shell\r\nbower install sly\r\n```\r\n\r\nOr manually download the latest stable release:\r\n\r\n- [Production (minified)](https://raw.github.com/Darsain/sly/master/dist/sly.min.js) - 14KB, 6KB gzipped\r\n- [Development (full source)](https://raw.github.com/Darsain/sly/master/dist/sly.js) - 50KB\r\n\r\n## Documentation\r\n\r\n- **[Markup](https://github.com/Darsain/sly/wiki/Markup)** - how should the HTML look like\r\n- **[Calling](https://github.com/Darsain/sly/wiki/Calling)** - how to call Sly\r\n- **[Options](https://github.com/Darsain/sly/wiki/Options)** - all available options\r\n- **[Properties](https://github.com/Darsain/sly/wiki/Properties)** - accessible Sly object properties\r\n- **[Methods](https://github.com/Darsain/sly/wiki/Methods)** - all available methods, and how to use them\r\n- **[Events](https://github.com/Darsain/sly/wiki/Events)** - all available events, and how to register callbacks\r\n- **[Parallax](https://github.com/Darsain/sly/wiki/Parallax)** - how to initiate and use Sly's parallax mode\r\n\r\n## Roadmap\r\n\r\nAll of the desired features have been implemented.\r\n\r\nMaaaaybe never, but I'd liked to:\r\n\r\n- Dropping jQuery dependency, and transforming Sly into a [Component](http://component.io/) compoment.\r\n- RTL layout support.\r\n\r\n## Contributing\r\n\r\nPlease, read the [Contributing Guidelines](CONTRIBUTING.md) for this project.",
+  "readmeFilename": "README.md",
+  "_id": "sly@1.0.1"
+}

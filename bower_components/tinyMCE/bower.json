@@ -1,0 +1,19 @@
+{
+  "name": "tinyMCE",
+  "version": "0.0.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components"
+  ],
+  "gitHead": "3625897b2e2c8961560e33a7a66594a9bfd26248",
+  "readme": "bower-tinymce-amd\r\n=================\r\n\r\nBower and require JS compatible version of tinymce\r\n\r\nUpdate your requirejs paths\r\n\r\n```\r\nrequirejs.config({\r\n\tpaths: {\r\n\t    tinyMCE: \"components/bower-tinymce-amd/tinyMCE\",\r\n\t    tinyMCE_source: \"components/bower-tinymce-amd/tinymce/tinymce\"\r\n\t}\r\n}):\r\n```\r\n\r\nDuring optimization exclude tinyMCE_source to preserve relative loading paths tinyMCE_source uses\r\n\r\n```\r\nmodules: [\r\n\t{\r\n\t\tname: 'main'\r\n\t},\r\n\t{\r\n\t\tname: 'tinyMCE',\r\n\t\texclude: ['tinyMCE_source']\r\n\t}\r\n]\r\n```",
+  "readmeFilename": "README.md",
+  "_id": "tinyMCE@0.0.0",
+  "description": "bower-tinymce-amd\r =================",
+  "commit": "3625897b2e2c8961560e33a7a66594a9bfd26248",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/thomaswelton/bower-tinymce-amd.git"
+  }
+}

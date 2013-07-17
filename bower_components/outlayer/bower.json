@@ -1,0 +1,33 @@
+{
+  "name": "outlayer",
+  "version": "1.0.0",
+  "description": "the brains and guts of a layout library",
+  "main": [
+    "item.js",
+    "outlayer.js"
+  ],
+  "dependencies": {
+    "doc-ready": "desandro/doc-ready#>=0.0.3",
+    "eventEmitter": ">=3",
+    "eventie": "desandro/eventie#>=1.0.3",
+    "get-size": "desandro/get-size#>=1.0.0",
+    "get-style-property": "desandro/get-style-property",
+    "jquery-bridget": "~1.0",
+    "matches-selector": "desandro/matches-selector#>=0.2.0"
+  },
+  "devDependencies": {
+    "jquery": ">=1.4.3 <2",
+    "qunit": "~1"
+  },
+  "ignore": [
+    "test/"
+  ],
+  "gitHead": "df781b4651e58b8aea9b7d9ecb0cba6f110a5206",
+  "readme": "# Outlayer\r\n\r\n_Layout class_\r\n\r\nOutlayer is a base layout class for layout libraries like [Packery](http://packery.metafizzy.co) and [Masonry](http://masonry.desandro.com)\r\n\r\nOutlayer layouts work with a container element and children item elements.\r\n\r\n``` html\r\n<div class=\"container\">\r\n  <div class=\"item\"></div>\r\n  <div class=\"item\"></div>\r\n  <div class=\"item\"></div>\r\n  ...\r\n</div>\r\n```\r\n\r\n## Outlayer.create()\r\n\r\nCreate a layout class with `Outlayer.create()`\r\n\r\n``` js\r\nvar Layout = Outlayer.create( namespace );\r\n// for example\r\nvar Masonry = Outlayer.create('masonry');\r\n```\r\n\r\n+ `namespace` _{String}_ should be camelCased\r\n+ returns `LayoutClass` _{Function}_\r\n\r\nCreate a new layout class. `namespace` is used for jQuery plugin, and for declarative initialization.\r\n\r\nThe `Layout` inherits from [`Outlayer.prototype`](docs/outlayer.md).\r\n\r\n```\r\nvar elem = document.querySelector('#selector');\r\nvar msnry = new Masonry( elem, {\r\n  // set options...\r\n  columnWidth: 200\r\n});\r\n```\r\n\r\n## Item\r\n\r\nLayouts work with Items, accessible as `Layout.Item`. See [Item API](docs/item.md).\r\n\r\n## Declarative\r\n\r\nAn Outlayer layout class can be initialized via HTML, by setting a class of `.js-namespace` on the element. Options can be set via a `data-namespace-options` attribution. For example:\r\n\r\n``` html\r\n<!-- var Masonry = Outlayer.create('masonry') -->\r\n<div id=\"container\" class=\"js-masonry\" data-masonry-options='{ \"itemSelector\": \".item\", \"columnWidth\": 200 }'>\r\n  ...\r\n</div>\r\n```\r\n\r\nThe declarative attributes and class will be dashed. i.e. `Outlayer.create('myNiceLayout')` will use `js-my-nice-layout` the class and `data-my-nice-layout-options` as the options attribute.\r\n\r\n## .data()\r\n\r\nGet a layout instance from an element.\r\n\r\n```\r\nvar myMasonry = Masonry.data( document.querySelector('#container') );\r\n```\r\n\r\n## jQuery plugin\r\n\r\nThe layout class also works as jQuery plugin.\r\n\r\n``` js\r\n// create Masonry layout class, namespace will be the jQuery method\r\nvar Masonry = Outlayer.create('masonry');\r\n// rock some jQuery\r\n$( function() {\r\n  // .masonry() to initialize\r\n  var $container = $('#container').masonry({\r\n    // options...\r\n  });\r\n  // methods are available by passing a string as first parameter\r\n  $container.masonry( 'reveal', elems );\r\n});\r\n```\r\n",
+  "readmeFilename": "README.md",
+  "_id": "outlayer@1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/metafizzy/outlayer.git"
+  }
+}

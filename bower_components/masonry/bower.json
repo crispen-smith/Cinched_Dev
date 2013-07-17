@@ -1,0 +1,22 @@
+{
+  "name": "masonry",
+  "version": "3.0.3",
+  "description": "Cascading grid layout library",
+  "main": "masonry.js",
+  "dependencies": {
+    "get-size": "desandro/get-size",
+    "outlayer": "metafizzy/outlayer#>=0.4.0"
+  },
+  "devDependencies": {
+    "doc-ready": "desandro/doc-ready",
+    "qunit": "1.x"
+  },
+  "gitHead": "9bfefbfa084da234b6170bb87322c9f33a704ed5",
+  "readme": "# Masonry\r\n\r\n_Cascading grid layout library_\r\n\r\nMasonry works by placing elements in optimal position based on available vertical space, sort of like a mason fitting stones in a wall. You’ve probably seen it in use all over the Internet.\r\n\r\nFor complete docs and demos, see [masonry.desandro.com](http://masonry.desandro.com) or [masonryjs.com](http://masonryjs.com) if you're lazy,\r\n\r\n## Install\r\n\r\nA packaged source file includes everything you need to use Masonry.\r\n\r\n+ [masonry.pkgd.min.js](http://masonry.desandro.com/masonry.pkgd.min.js)\r\n+ [masonry.pkgd.js](http://masonry.desandro.com/masonry.pkgd.js)\r\n\r\n### Bower\r\n\r\nIf you are cool with the command line, install Masonry as a [Bower](http://bower.io) package:\r\n\r\n``` bash\r\nbower install masonry\r\n```\r\n\r\n## Initialize\r\n\r\n### In JavaScript\r\n\r\n``` js\r\nvar container = document.querySelector('#container');\r\nvar msnry = new Masonry( container, {\r\n  // options...\r\n  itemSelector: '.item',\r\n  columnWidth: 200\r\n});\r\n```\r\n\r\n### In HTML\r\n\r\nAdd a class of `js-masonry` to your element. Options can be set in JSON in `data-masonry-options`.\r\n\r\n``` html\r\n<div class=\"js-masonry\" data-masonry-options='{ \"itemSelector\": \".item\", \"columnWidth\": 200 }'>\r\n  <div class=\"item\"></div>\r\n  <div class=\"item\"></div>\r\n  ...\r\n</div>\r\n```\r\n\r\n## License\r\n\r\nMasonry is licensed MIT. Have at it.\r\n\r\n* * *\r\n\r\nCopyright (c) 2013 David DeSandro\r\n",
+  "readmeFilename": "README.mdown",
+  "_id": "masonry@3.0.3",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/desandro/masonry.git"
+  }
+}
