@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel="stylesheet" href="/stylesheets/style.css" />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome aboard! Visit <a href="http://locomotivejs.org/">locomotivejs.org</a> for details.</p>
-  </body>
-</html>
+<% block('title', 'Cinched Tight, Celebrate Your Shape') %>
+<% block('description', 
+          'Cinched Tight is a boutique studio dedicated to the vision: Celebrate your shape. We create a collection including corsets, latex, skirts, tops and accessories designed to accentuate the figure, create confidence and celebrate your shape.') %>
+<% block('data-main', 'main.js'); %>
+
+<% layout('../../layouts/layout.ejs') -%>
+

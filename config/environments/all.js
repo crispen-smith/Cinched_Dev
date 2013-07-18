@@ -1,5 +1,7 @@
+//Crispen/Crispen/Config/Environments/all.js
 var express = require('express')
   , poweredBy = require('connect-powered-by')
+  , engine = require('ejs-locals')
   , util = require('util');
 
 module.exports = function() {
@@ -15,7 +17,7 @@ module.exports = function() {
   this.set('view engine', 'ejs');
 
   // Register EJS as a template engine.
-  this.engine('ejs', require('ejs').__express);
+  this.engine('ejs', engine);
 
   // Override default template extension.  By default, Locomotive finds
   // templates using the `name.format.engine` convention, for example
@@ -37,8 +39,12 @@ module.exports = function() {
   this.use(poweredBy('Locomotive'));
   this.use(express.logger());
   this.use(express.favicon());
-  this.use(express.static(__dirname + '/../../public'));
+  this.use("/resources", express.static(__dirname + '/../../resources'));
+  this.use("/scripts", express.static(__dirname + '/../../resources/scripts'));
+  this.use("/components", express.static(__dirname + '/../../bower_components'));
   this.use(express.bodyParser());
   this.use(express.methodOverride());
+  this.use(express.compress());
   this.use(this.router);
+  
 }

@@ -1,0 +1,111 @@
+<!doctype html>
+
+<!--[if lt IE 7 ]> <html class="ie ie6 ie-lt10 ie-lt9 ie-lt8 ie-lt7 no-js" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie ie7 ie-lt10 ie-lt9 ie-lt8 no-js" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie ie8 ie-lt10 ie-lt9 no-js" lang="en"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie ie9 ie-lt10 no-js" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--><html class="no-js" lang="en"><!--<![endif]-->
+
+<head id="cinched_tight" data-template-set="html5-reset">
+
+  <meta charset="utf-8">
+	
+  <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+  <title><%- block('title') %></title>
+	
+  <meta name="title" content="<%-block('title') %>" />
+  <meta name="description" content="<%-block('description') %>" />
+  <meta name="author" content="crispen.smith@gmail.com" />
+  <!-- Google will often use this as its description of your page/site. Make it good. -->
+	
+  <meta name="google-site-verification" content="" />
+  <!-- Speaking of Google, don't forget to set your site up: http://google.com/webmasters -->
+	
+  <meta name="Copyright" content="2013" />
+	
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="shortcut icon" href="resources/images/favicon.ico" />
+	
+  <!--  Apple product icons using the 2 icon method taken from  -->
+  <!--   http://stackoverflow.com/questions/2997437/what-size-should-apple-touch-icon-png-be-for-ipad-and-iphone-4 -->	 
+  <!-- Standard iPhone --> 
+  <link rel="apple-touch-icon" sizes="57x57" href="resources/images/touch-icon-iphone-114.png" />
+  <!-- Retina iPhone --> 
+  <link rel="apple-touch-icon" sizes="114x114" href="resources/images/touch-icon-iphone-114.png" />
+  <!-- Standard iPad --> 
+  <link rel="apple-touch-icon" sizes="72x72" href="resources/images/touch-icon-ipad-144.png" />
+  <!-- Retina iPad --> 
+  <link rel="apple-touch-icon" sizes="144x144" href="resources/images/touch-icon-ipad-144.png" />
+  
+  
+  <meta name="application-name" content="Cinched Tight"/> 
+  <meta name="msapplication-TileColor" content="#F8E1ED"/> 
+  <meta name="msapplication-TileImage" content="resources/images/touch-icon-ipad-144.png"/>
+  
+  
+  <link rel="stylesheet" href="/resources/Stylesheets/style.css" />
+  <script data-main = "/scripts/pages/<%-block('data-main')%>" src="/components/requirejs/require.js"></script>
+    
+</head>
+
+<body>
+<header
+  class="greeting"
+  role="banner"
+>
+  <ul aria-label="social media">
+    <li class="icon"><a href="https://www.facebook.com/cinchedtight" target="_blank">facebook</a></li>
+    <li class="icon"><a href="https://twitter.com/cinchedtight" target="_blank">twitter</a></li>
+    <li class="icon"><a href="http://instagram.com/cinchedtight/" target="_blank">instagram</a></li>
+    <li class="icon" ><a href="http://cinched-tight.deviantart.com/" target="_blank">deviantart</a></li>
+  </ul>
+  <h1>Cinched Tight</h1>
+  <blockquote>Celebrate Your Shape</blockquote>
+</header>
+<main
+  aria-labelledby="title"
+  class="container"
+  id="main"
+  role="main"
+>
+  <nav
+    role="navigation"
+    class="navbar"
+  >
+    <ul>
+      <li class="widest"><a href="#"> Under Bust Corsets </a></li>
+      <li class="wide"><a href="#"> Over Bust Corsets </a></li>
+      <li class="narrower"><a href="#"> Latex Dresses </a></li>
+      <li class="narrow"><a href="#"> Latex Lingerie </a></li>
+      <li class="narrowest"><a href="#"> About </a></li>
+      <li class="widest"><a href="#">Accessories</a></li>
+      <li class="wide"><a href="#" >Wardrobe</a></li>
+      <li class="narrower">
+        <a href="#">
+          Policies
+        </a>
+      </li>
+      <li class="narrow"><a href="#">Contact</a></li>
+      <li class="narrowest"><a href="#">f.a.q.</a></li>
+    </ul>
+  </nav>
+  <%- body -%>
+</main>
+<footer role="contentinfo"  class="parting">Cinched Tight is a small team based in Ontario, Canada with a passion for clothing that <br>celebrates your shape.<br>  This site is &copy;2013</footer>
+
+<script>
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-XXXXXX-XX']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

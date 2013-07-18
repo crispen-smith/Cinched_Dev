@@ -1,0 +1,20 @@
+{
+  "name": "json",
+  "version": "0.0.0",
+  "description": "JSON component",
+  "keywords": [
+    "json",
+    "json2"
+  ],
+  "main": "json2.js",
+  "license": "JSON License",
+  "gitHead": "c426c182047130d3481c886a810ebc7c6ead3109",
+  "readme": "JSON Component\r\n================\r\n\r\nBower's [JSON](http://www.json.org/) Component.\r\n\r\nPackage Managers\r\n----------------\r\n\r\n* [Bower](http://twitter.github.com/bower/): `json`",
+  "readmeFilename": "README.md",
+  "_id": "json@2012.10.08",
+  "commit": "c426c182047130d3481c886a810ebc7c6ead3109",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/sasidhar/bower-json.git"
+  }
+}
