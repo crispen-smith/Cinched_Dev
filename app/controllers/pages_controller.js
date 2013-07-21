@@ -4,8 +4,23 @@ var locomotive = require('locomotive')
 var PagesController = new Controller();
 
 PagesController.main = function() {
-  this.title = 'Locomotive'
   this.render();
+}
+
+PagesController.about = function() {
+	this.render();
+}
+
+PagesController.faq = function() {
+	this.render();
+}
+
+PagesController.policies = function () {
+	this.render();
+}
+
+PagesController.contact = function () {
+	this.render();
 }
 
 module.exports = PagesController;

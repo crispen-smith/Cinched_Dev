@@ -19,12 +19,35 @@
 /* Note that 2/10 = 1/5, 4/10 = 2/5, 5/10 = 1/2, 6/10 = 3/5, 8/10 = 4/5 and 10/10 = 1. */
 /* Honestly, this is so close to nineTenths that there's no real value to including it, but it's here for completion. */
 /* Ratios */
-.greeting, .parting, nav ul li a {
+.greeting, .parting, .navbar ul li a, #menuButton, #loginForm .textWidget, #loginForm .titleFrame {
   /* A border to fake drop shadow style pooling which isn't working as desired in this context. */
   background-color: white;
   border-radius: 5%;
-  border: 3px solid #ebd5e1;
+  border: 2px solid #ebd5e1;
   box-shadow: inset 0px 0px 50px #dfcad5; }
+
+.greeting .icon a, #menuButton {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-family: cinched_icons;
+  font-feature-settings: "liga","dlig";
+  text-rendering: optimizeLegibility;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  display: block;
+  font-size: 2rem;
+  text-decoration: none;
+  color: #dfcad5;
+  text-shadow: 2px 2px 1px #7c7076;
+  transition: color .25s, text-shadow .25s, font-size .25s, margin .25s; }
+  .greeting .icon a:hover, #menuButton:hover {
+    border: none;
+    color: #f8e4ee; }
 
 /*
 	HTML5 Reset :: style.css
@@ -274,18 +297,38 @@ textarea:-moz-placeholder {
 html {
   height: 99%;
   font-size: 16px; }
+  @media (max-width: 1250px) {
+    html {
+      font-size: 10px; } }
 
 body {
   height: 100%; }
 
-.greeting, .parting {
+#screen {
+  position: absolute;
+  background-color: #f8e1ed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   z-index: 200;
+  cursor: pointer;
+  display: none; }
+  #screen.open {
+    display: block;
+    cursor: progress; }
+
+.greeting, .parting {
+  z-index: 10;
   color: #333333;
   position: absolute;
   width: 30rem;
   left: 50%;
-  margin-left: -15rem;
+  margin-left: -16rem;
   text-align: center; }
+  @media (max-width: 1000px) {
+    .greeting, .parting {
+      margin-left: -15rem; } }
 
 .greeting {
   padding-bottom: 2rem;
@@ -296,7 +339,7 @@ body {
   border-bottom-left-radius: 100%;
   border-bottom-right-radius: 100%; }
   .greeting ul {
-    margin: -4rem 0 2.5rem -1rem; }
+    margin: -4rem 0 2.5rem; }
     .greeting ul:after {
       opacity: .1;
       position: absolute;
@@ -312,34 +355,12 @@ body {
     display: inline-block;
     margin: 0 2rem;
     position: relative; }
-    .greeting .icon a {
-      position: absolute;
-      top: 0;
-      left: 0;
-      font-family: cinched_icons;
-      font-feature-settings: "liga","dlig";
-      text-rendering: optimizeLegibility;
-      font-style: normal;
-      font-weight: normal;
-      font-variant: normal;
-      text-transform: none;
-      line-height: 1;
-      -webkit-font-smoothing: antialiased;
-      display: block;
-      font-size: 2rem;
-      text-decoration: none;
-      color: #dfcad5;
-      text-shadow: 1px 1px 1px #7c7076;
-      transition: color .25s, text-shadow .25s, font-size .25s, margin .25s; }
-      .greeting .icon a:hover {
-        border: none;
-        color: #f8e4ee; }
-      .greeting .icon a:active {
-        border: none;
-        margin-top: -.25rem;
-        margin-left: -.25rem;
-        font-size: 2.5rem;
-        text-shadow: 3px 3px 5px #7c7076; }
+    .greeting .icon a:active {
+      border: none;
+      margin-top: -.25rem;
+      margin-left: -.25rem;
+      font-size: 2.5rem;
+      text-shadow: 3px 3px 5px #7c7076; }
   .greeting h1 {
     font-family: 'cinchedTight', cursive;
     font-style: normal;
@@ -380,29 +401,86 @@ body {
   font-weight: 200;
   font-size: 1rem;
   z-index: 1;
-  position: absolute;
   top: 2rem;
   left: 50%;
   width: 93.25rem;
   margin-left: -46rem;
-  bottom: 1rem;
-  /*  @extend %droppedField; */ }
+  bottom: 1rem; }
+  @media (max-width: 1000px) {
+    .container {
+      width: 70rem;
+      margin-left: -35rem; } }
+  @media (max-width: 400px) {
+    .container {
+      width: 0;
+      margin: 0; } }
+  @media (min-width: 1000px) {
+    .container {
+      position: absolute; } }
 
-nav {
-  margin-top: -1.9rem; }
-  nav ul li {
+.navbar {
+  z-index: 200;
+  margin-top: 0;
+  position: absolute;
+  width: 16rem;
+  background: none;
+  border: none;
+  transition: left 1s; }
+  @media (max-width: 1000px) {
+    .navbar {
+      left: .5rem;
+      top: 50%;
+      margin-top: -285px;
+      height: 570px; } }
+  @media (max-width: 400px) {
+    .navbar {
+      left: 50%;
+      top: 50%;
+      margin-top: -210px;
+      height: 420px;
+      margin-left: -80px;
+      text-align: center; } }
+  @media (min-width: 1000px) {
+    .navbar {
+      margin-top: -1.9rem;
+      width: 100%; } }
+  @media (max-width: 1000px) {
+    .navbar.closed {
+      left: -16rem !important; } }
+  @media (max-width: 400px) {
+    .navbar.closed {
+      left: -8rem !important; } }
+  .navbar ul {
+    position: absolute;
+    display: block;
+    height: auto; }
+    @media (max-width: 1000px) {
+      .navbar ul {
+        height: 10%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start; } }
+    @media (max-width: 400px) {
+      .navbar ul {
+        margin-left: .5rem;
+        margin-top: -.5rem; } }
+  .navbar ul li {
     margin-bottom: .25rem;
     padding: 0;
     position: relative;
-    border-radius: 20%;
-    display: inline-block; }
-    nav ul li:nth-of-type(3), nav ul li:nth-of-type(8) {
-      margin-left: 33rem; }
-    nav ul li a {
+    display: block;
+    width: 99%;
+    flex: 0 0 99%; }
+    @media (min-width: 1000px) {
+      .navbar ul li {
+        display: inline-block; }
+        .navbar ul li:nth-of-type(3), .navbar ul li:nth-of-type(8) {
+          margin-left: 31rem; } }
+    .navbar ul li a {
       text-align: center;
       color: #312d2f;
       text-shadow: 0px 0px 0px #7c7076;
-      padding: .25rem .75rem;
+      padding: .1rem .75rem;
       transition: background-color .3s, color .3s, text-shadow .3s;
       font-family: 'cinchedTight', cursive;
       font-style: normal;
@@ -410,22 +488,201 @@ nav {
       display: block;
       font-size: 2rem;
       font-size: 1.75rem; }
-      nav ul li a:hover {
-        background-color: #fcf6f9;
+      @media (max-width: 1000px) {
+        .navbar ul li a {
+          padding: 1.5rem .75rem;
+          background: none;
+          background-color: #f8e1ed;
+          border: none;
+          box-shadow: 0 2px 3px 0px #7c7076; } }
+      @media (max-width: 400px) {
+        .navbar ul li a {
+          padding: .75rem; } }
+      @media (min-width: 1000px) {
+        .navbar ul li a {
+          font-size: 1.5rem;
+          padding: .4rem; } }
+      .navbar ul li a:hover, .navbar ul li a:active {
         text-shadow: 1px 1px 1px #c6b4bd;
         color: #181617; }
-    nav ul li.widest {
+        @media (min-width: 1000px) {
+          .navbar ul li a:hover, .navbar ul li a:active {
+            background-color: #fcf6f9 !important; } }
+    .navbar ul li.widest {
       width: 15rem; }
-    nav ul li.wide {
+    .navbar ul li.wide {
       width: 14rem; }
-    nav ul li.narrow {
+      @media (max-width: 1000px) {
+        .navbar ul li.wide {
+          width: 15rem; } }
+    .navbar ul li.narrow {
       width: 12rem; }
-    nav ul li.narrower {
-      width: 11rem; }
-    nav ul li.narrowest {
+      @media (max-width: 1000px) {
+        .navbar ul li.narrow {
+          width: 15rem; } }
+    .navbar ul li.narrower {
+      width: 13rem; }
+      @media (max-width: 1000px) {
+        .navbar ul li.narrower {
+          width: 15rem; } }
+    .navbar ul li.narrowest {
       width: 7rem; }
+      @media (max-width: 1000px) {
+        .navbar ul li.narrowest {
+          width: 15rem; } }
+
+#menuButton {
+  z-index: 40;
+  right: -1.5em;
+  top: 50%;
+  left: auto;
+  margin-top: -1em;
+  background-color: #fefefe;
+  border-radius: 100%;
+  padding: 2rem 1rem 2rem .25rem;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0; }
+  @media (max-width: 400px) {
+    #menuButton {
+      padding: .75rem .75rem .75rem 0; } }
+  #menuButton:hover {
+    border: 2px solid #ebd5e1; }
+  #menuButton:after {
+    content: "";
+    box-shadow: 0 2px 3px 1px #c6b4bd;
+    width: 3.25rem;
+    height: 6rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 0 100% 100% 0; }
+    @media (max-width: 400px) {
+      #menuButton:after {
+        width: 3rem;
+        height: 3.75rem; } }
+  @media (min-width: 1000px) {
+    #menuButton {
+      display: none; } }
+
+#loginForm {
+  z-index: 40;
+  position: absolute;
+  width: 22rem;
+  height: 26.75rem;
+  margin-left: -11rem;
+  margin-top: -13.375rem;
+  top: 50%;
+  left: 50%; }
+  @media (min-width: 1000px) {
+    #loginForm {
+      margin-left: -12rem; } }
+  #loginForm .textWidget, #loginForm .submitWidget, #loginForm .titleFrame {
+    position: relative;
+    width: 98%;
+    margin: .25rem;
+    text-align: center;
+    padding: .5rem; }
+  #loginForm .textWidget:after, #loginForm .textWidget:before, #loginForm .titleFrame:after, #loginForm .titleFrame:before {
+    position: absolute;
+    z-index: 90;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    content: ""; }
+  #loginForm .textWidget:after, #loginForm .titleFrame:after {
+    box-shadow: 0 2px 3px 0px #94878e; }
+  #loginForm .textWidget .contentFrame {
+    position: relative;
+    z-index: 200; }
+  #loginForm .textWidget label, #loginForm .textWidget input {
+    font-family: 'Cantata One', serif;
+    font-style: normal;
+    font-weight: 200;
+    font-size: 1rem;
+    font-size: 1.4rem; }
+  #loginForm .titleFrame H2 {
+    font-family: 'cinchedTight', cursive;
+    font-style: normal;
+    font-weight: 400;
+    display: block;
+    font-size: 2rem;
+    margin-bottom: .125rem; }
+  #loginForm .titleFrame p {
+    line-height: 1.25rem;
+    padding: 0 1rem;
+    text-align: left;
+    margin-bottom: .25rem; }
 
 /* _appearances.scss, provides styling for classes. */
 html {
   background-image: url("../images/background_tile.jpg");
   background-repeat: repeat; }
+
+.product {
+  order: 1;
+  box-ordinal-group: 1;
+  flex-order: 1; }
+  @media (min-width: 1000px) {
+    .product a {
+      background-color: #fff2f2 !important; } }
+  @media (max-width: 1000px) {
+    .product a {
+      background-color: #ffe5e5 !important; }
+      .product a:hover, .product a:active {
+        background-color: #ffcccc !important; } }
+
+.support {
+  order: 2;
+  box-ordinal-group: 2;
+  flex-order: 2; }
+  @media (max-width: 1000px) {
+    .support a {
+      background-color: #e5e5ff !important; }
+      .support a:hover, .support a:active {
+        background-color: #ccccff !important; } }
+  @media (min-width: 1000px) {
+    .support a {
+      background-color: #f2f2ff !important; } }
+
+.button {
+  border: none;
+  color: #ffffff;
+  width: 99%;
+  padding: 2rem;
+  text-align: center;
+  line-height: 2.2rem;
+  border-radius: .6rem;
+  text-decoration: none;
+  text-shadow: none;
+  transition: 0.25s;
+  backface-visibility: hidden;
+  appearance: none; }
+  @media (min-width: 1000px) {
+    .button {
+      line-height: 1.375rem;
+      border-radius: .375rem;
+      padding: 1rem; } }
+
+.login {
+  background: -moz-radial-gradient(center, ellipse cover, #b2b2ff 22%, #9999ff 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(22%, #b2b2ff), color-stop(100%, #9999ff));
+  background: -webkit-radial-gradient(center, ellipse cover, #b2b2ff 22%, #9999ff 100%);
+  background: -o-radial-gradient(center, ellipse cover, #b2b2ff 22%, #9999ff 100%);
+  background: -ms-radial-gradient(center, ellipse cover, #b2b2ff 22%, #9999ff 100%);
+  background: radial-gradient(center, ellipse cover, #b2b2ff 22%, #9999ff 100%);
+  box-shadow: 0 2px 3px 0px #94878e; }
+  .login:hover {
+    background: -moz-radial-gradient(center, ellipse cover, #c1c1ff 22%, #adadff 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(22%, #c1c1ff), color-stop(100%, #adadff));
+    background: -webkit-radial-gradient(center, ellipse cover, #c1c1ff 22%, #adadff 100%);
+    background: -o-radial-gradient(center, ellipse cover, #c1c1ff 22%, #adadff 100%);
+    background: -ms-radial-gradient(center, ellipse cover, #c1c1ff 22%, #adadff 100%);
+    background: radial-gradient(center, ellipse cover, #c1c1ff 22%, #adadff 100%); }
+  .login:active {
+    background: -moz-radial-gradient(center, ellipse cover, #b2b2ef 22%, #9999ea 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(22%, #b2b2ef), color-stop(100%, #9999ea));
+    background: -webkit-radial-gradient(center, ellipse cover, #b2b2ef 22%, #9999ea 100%);
+    background: -o-radial-gradient(center, ellipse cover, #b2b2ef 22%, #9999ea 100%);
+    background: -ms-radial-gradient(center, ellipse cover, #b2b2ef 22%, #9999ea 100%);
+    background: radial-gradient(center, ellipse cover, #b2b2ef 22%, #9999ea 100%); }
