@@ -2,18 +2,19 @@
   "name": "cinched_node",
   "version": "0.0.1",
   "scripts": {
-    "start": "node_modules/locomotive/bin/lcm server" },
+    "start": "node_modules/locomotive/bin/lcm server"
+  },
   "private": true,
   "dependencies": {
     "locomotive": "0.3.x",
     "express": "3.x.x",
     "connect-powered-by": "0.1.x",
     "ect": "",
-  	"jasmine-node": "",
-	  "cloudinary": "",
-	  "validator": "",
-	  "mongoose": "", 
-	 "passport": "",
-	 "requirejs": ""
+    "jasmine-node": "",
+    "cloudinary": "",
+    "validator": "",
+    "passport": "",
+    "requirejs": "",
+    "locomotive-mongoose": "~0.1.0"
   }
 }
