@@ -8,6 +8,10 @@ loginController.present = function() {
 }
 
 loginController.attempt = function() {
+	
+	this.user = this.param('user');
+	this.password = this.param('password');
+	
 	this.render();
 }
 

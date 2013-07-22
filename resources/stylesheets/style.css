@@ -40,14 +40,13 @@
   line-height: 1;
   -webkit-font-smoothing: antialiased;
   display: block;
-  font-size: 2rem;
+  font-size: 2.25rem;
   text-decoration: none;
-  color: #dfcad5;
-  text-shadow: 2px 2px 1px #7c7076;
+  color: rgba(249, 231, 240, 0.3);
+  text-shadow: -2px -2px 1px rgba(148, 135, 142, 0.5);
   transition: color .25s, text-shadow .25s, font-size .25s, margin .25s; }
   .greeting .icon a:hover, #menuButton:hover {
-    border: none;
-    color: #f8e4ee; }
+    color: rgba(248, 228, 238, 0.9); }
 
 /*
 	HTML5 Reset :: style.css
@@ -355,12 +354,10 @@ body {
     display: inline-block;
     margin: 0 2rem;
     position: relative; }
-    .greeting .icon a:active {
-      border: none;
-      margin-top: -.25rem;
-      margin-left: -.25rem;
-      font-size: 2.5rem;
-      text-shadow: 3px 3px 5px #7c7076; }
+    .greeting .icon a {
+      border: none; }
+      .greeting .icon a:after {
+        border: none; }
   .greeting h1 {
     font-family: 'cinchedTight', cursive;
     font-style: normal;
@@ -479,7 +476,6 @@ body {
     .navbar ul li a {
       text-align: center;
       color: #312d2f;
-      text-shadow: 0px 0px 0px #7c7076;
       padding: .1rem .75rem;
       transition: background-color .3s, color .3s, text-shadow .3s;
       font-family: 'cinchedTight', cursive;
@@ -502,12 +498,6 @@ body {
         .navbar ul li a {
           font-size: 1.5rem;
           padding: .4rem; } }
-      .navbar ul li a:hover, .navbar ul li a:active {
-        text-shadow: 1px 1px 1px #c6b4bd;
-        color: #181617; }
-        @media (min-width: 1000px) {
-          .navbar ul li a:hover, .navbar ul li a:active {
-            background-color: #fcf6f9 !important; } }
     .navbar ul li.widest {
       width: 15rem; }
     .navbar ul li.wide {
@@ -542,24 +532,15 @@ body {
   padding: 2rem 1rem 2rem .25rem;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0; }
-  @media (max-width: 400px) {
-    #menuButton {
-      padding: .75rem .75rem .75rem 0; } }
-  #menuButton:hover {
-    border: 2px solid #ebd5e1; }
   #menuButton:after {
     content: "";
-    box-shadow: 0 2px 3px 1px #c6b4bd;
-    width: 3.25rem;
-    height: 6rem;
+    box-shadow: 0 2px 3px 0px #94878e;
+    width: 3.6rem;
+    height: 6.25rem;
     position: absolute;
     top: 0;
     left: 0;
     border-radius: 0 100% 100% 0; }
-    @media (max-width: 400px) {
-      #menuButton:after {
-        width: 3rem;
-        height: 3.75rem; } }
   @media (min-width: 1000px) {
     #menuButton {
       display: none; } }
@@ -607,6 +588,7 @@ body {
     font-weight: 400;
     display: block;
     font-size: 2rem;
+    font-weight: 600;
     margin-bottom: .125rem; }
   #loginForm .titleFrame p {
     line-height: 1.25rem;
@@ -622,15 +604,13 @@ html {
 .product {
   order: 1;
   box-ordinal-group: 1;
-  flex-order: 1; }
+  flex-order: 1;
+  background-color: #ffe5e5 !important; }
   @media (min-width: 1000px) {
     .product a {
       background-color: #fff2f2 !important; } }
-  @media (max-width: 1000px) {
-    .product a {
-      background-color: #ffe5e5 !important; }
-      .product a:hover, .product a:active {
-        background-color: #ffcccc !important; } }
+  .product a:hover, .product a:active {
+    background-color: #ffcccc !important; }
 
 .support {
   order: 2;
@@ -638,16 +618,18 @@ html {
   flex-order: 2; }
   @media (max-width: 1000px) {
     .support a {
-      background-color: #e5e5ff !important; }
-      .support a:hover, .support a:active {
-        background-color: #ccccff !important; } }
+      background-color: #e5e5ff !important; } }
   @media (min-width: 1000px) {
     .support a {
       background-color: #f2f2ff !important; } }
+  .support a:hover, .support a:active {
+    background-color: #ccccff !important; }
 
 .button {
   border: none;
-  color: #ffffff;
+  font-weight: 800;
+  color: rgba(0, 0, 0, 0.3);
+  font-size: 3rem;
   width: 99%;
   padding: 2rem;
   text-align: center;
@@ -662,6 +644,7 @@ html {
     .button {
       line-height: 1.375rem;
       border-radius: .375rem;
+      font-size: 2rem;
       padding: 1rem; } }
 
 .login {
@@ -673,16 +656,16 @@ html {
   background: radial-gradient(center, ellipse cover, #b2b2ff 22%, #9999ff 100%);
   box-shadow: 0 2px 3px 0px #94878e; }
   .login:hover {
-    background: -moz-radial-gradient(center, ellipse cover, #c1c1ff 22%, #adadff 100%);
-    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(22%, #c1c1ff), color-stop(100%, #adadff));
-    background: -webkit-radial-gradient(center, ellipse cover, #c1c1ff 22%, #adadff 100%);
-    background: -o-radial-gradient(center, ellipse cover, #c1c1ff 22%, #adadff 100%);
-    background: -ms-radial-gradient(center, ellipse cover, #c1c1ff 22%, #adadff 100%);
-    background: radial-gradient(center, ellipse cover, #c1c1ff 22%, #adadff 100%); }
+    background: -moz-radial-gradient(center, ellipse cover, #d1d1ff 22%, #c1c1ff 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(22%, #d1d1ff), color-stop(100%, #c1c1ff));
+    background: -webkit-radial-gradient(center, ellipse cover, #d1d1ff 22%, #c1c1ff 100%);
+    background: -o-radial-gradient(center, ellipse cover, #d1d1ff 22%, #c1c1ff 100%);
+    background: -ms-radial-gradient(center, ellipse cover, #d1d1ff 22%, #c1c1ff 100%);
+    background: radial-gradient(center, ellipse cover, #d1d1ff 22%, #c1c1ff 100%); }
   .login:active {
-    background: -moz-radial-gradient(center, ellipse cover, #b2b2ef 22%, #9999ea 100%);
-    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(22%, #b2b2ef), color-stop(100%, #9999ea));
-    background: -webkit-radial-gradient(center, ellipse cover, #b2b2ef 22%, #9999ea 100%);
-    background: -o-radial-gradient(center, ellipse cover, #b2b2ef 22%, #9999ea 100%);
-    background: -ms-radial-gradient(center, ellipse cover, #b2b2ef 22%, #9999ea 100%);
-    background: radial-gradient(center, ellipse cover, #b2b2ef 22%, #9999ea 100%); }
+    background: -moz-radial-gradient(center, ellipse cover, #b2b2e0 22%, #9999d6 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(22%, #b2b2e0), color-stop(100%, #9999d6));
+    background: -webkit-radial-gradient(center, ellipse cover, #b2b2e0 22%, #9999d6 100%);
+    background: -o-radial-gradient(center, ellipse cover, #b2b2e0 22%, #9999d6 100%);
+    background: -ms-radial-gradient(center, ellipse cover, #b2b2e0 22%, #9999d6 100%);
+    background: radial-gradient(center, ellipse cover, #b2b2e0 22%, #9999d6 100%); }

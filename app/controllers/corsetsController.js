@@ -8,6 +8,12 @@ CorsetsController.overBust = function() {
 }
 
 CorsetsController.underBust = function() {
+	product = this.param("item");
+	mode = this.param("mode");
+	
+	this.product = product;
+	this.mode = mode;
+	
 	this.render();
 }
 
