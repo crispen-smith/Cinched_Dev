@@ -1,16 +1,22 @@
-//Crispen/Crispen/Config/Environments/all.js
+//It might make more sense just to keep it self contained as a private implementation detail.
+
+
 var express = require('express')
-  , poweredBy = require('connect-powered-by')
   , engine = require('ejs-locals')
-  , util = require('util');
+  , util = require('util')
+  , passport = require('passport')
+  , flash = require('connect-flash')
+  ;
 
 module.exports = function() {
+
   // Warn of version mismatch between global "lcm" binary and local installation
   // of Locomotive.
   if (this.version !== require('locomotive').version) {
     console.warn(util.format('version mismatch between local (%s) and global (%s) Locomotive module', require('locomotive').version, this.version));
   }
 
+  
   // Configure application settings.  Consult the Express API Reference for a
   // list of the available [settings](http://expressjs.com/api.html#app-settings).
   this.set('views', __dirname + '/../../app/views');
@@ -36,15 +42,25 @@ module.exports = function() {
   // Use middleware.  Standard [Connect](http://www.senchalabs.org/connect/)
   // middleware is built-in, with additional [third-party](https://github.com/senchalabs/connect/wiki)
   // middleware available as separate modules.
-  this.use(poweredBy('Locomotive'));
   this.use(express.logger());
   this.use(express.favicon());
   this.use("/resources", express.static(__dirname + '/../../resources'));
   this.use("/scripts", express.static(__dirname + '/../../resources/scripts'));
   this.use("/components", express.static(__dirname + '/../../bower_components'));
+  
+  this.use(express.cookieParser());
   this.use(express.bodyParser());
+  
+  this.use(express.session({secret:"dehcnic"}));
+  this.use(passport.initialize());
+  this.use(passport.session());
+  
+  this.use(flash());
+  
   this.use(express.methodOverride());
   this.use(express.compress());
   this.use(this.router);
+  this.use(express.json());
   
+  this.datastore(require('locomotive-mongoose'));
 }

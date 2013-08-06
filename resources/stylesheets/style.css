@@ -21,7 +21,6 @@
 /* Ratios */
 .greeting, .parting, .navbar ul li a, #menuButton, #loginForm .textWidget, #loginForm .titleFrame {
   /* A border to fake drop shadow style pooling which isn't working as desired in this context. */
-  background-color: white;
   border-radius: 5%;
   border: 2px solid #ebd5e1;
   box-shadow: inset 0px 0px 50px #dfcad5; }
@@ -318,13 +317,14 @@ body {
     cursor: progress; }
 
 .greeting, .parting {
-  z-index: 10;
+  z-index: 40;
   color: #333333;
   position: absolute;
   width: 30rem;
   left: 50%;
   margin-left: -16rem;
-  text-align: center; }
+  text-align: center;
+  background-color: white; }
   @media (max-width: 1000px) {
     .greeting, .parting {
       margin-left: -15rem; } }
@@ -353,7 +353,8 @@ body {
     width: 2rem;
     display: inline-block;
     margin: 0 2rem;
-    position: relative; }
+    position: relative;
+    outline: none; }
     .greeting .icon a {
       border: none; }
       .greeting .icon a:after {
@@ -487,8 +488,6 @@ body {
       @media (max-width: 1000px) {
         .navbar ul li a {
           padding: 1.5rem .75rem;
-          background: none;
-          background-color: #f8e1ed;
           border: none;
           box-shadow: 0 2px 3px 0px #7c7076; } }
       @media (max-width: 400px) {
@@ -546,7 +545,7 @@ body {
       display: none; } }
 
 #loginForm {
-  z-index: 40;
+  z-index: 200;
   position: absolute;
   width: 22rem;
   height: 26.75rem;
@@ -563,16 +562,18 @@ body {
     margin: .25rem;
     text-align: center;
     padding: .5rem; }
-  #loginForm .textWidget:after, #loginForm .textWidget:before, #loginForm .titleFrame:after, #loginForm .titleFrame:before {
-    position: absolute;
-    z-index: 90;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    content: ""; }
-  #loginForm .textWidget:after, #loginForm .titleFrame:after {
-    box-shadow: 0 2px 3px 0px #94878e; }
+  #loginForm .textWidget, #loginForm .titleFrame {
+    background-color: white; }
+    #loginForm .textWidget:after, #loginForm .textWidget:before, #loginForm .titleFrame:after, #loginForm .titleFrame:before {
+      position: absolute;
+      z-index: 90;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      content: ""; }
+    #loginForm .textWidget:after, #loginForm .titleFrame:after {
+      box-shadow: 0 2px 3px 0px #94878e; }
   #loginForm .textWidget .contentFrame {
     position: relative;
     z-index: 200; }
@@ -581,7 +582,10 @@ body {
     font-style: normal;
     font-weight: 200;
     font-size: 1rem;
-    font-size: 1.4rem; }
+    font-size: 1.2rem; }
+  #loginForm .textWidget input {
+    padding: .25rem 1rem;
+    width: 90%; }
   #loginForm .titleFrame H2 {
     font-family: 'cinchedTight', cursive;
     font-style: normal;
@@ -604,13 +608,15 @@ html {
 .product {
   order: 1;
   box-ordinal-group: 1;
-  flex-order: 1;
-  background-color: #ffe5e5 !important; }
+  flex-order: 1; }
   @media (min-width: 1000px) {
     .product a {
-      background-color: #fff2f2 !important; } }
-  .product a:hover, .product a:active {
-    background-color: #ffcccc !important; }
+      background-color: #fff2f2; } }
+  @media (max-width: 1000px) {
+    .product a {
+      background-color: #ffe5e5; } }
+  .product a:hover, .product > a:active {
+    background-color: #ffd8d8; }
 
 .support {
   order: 2;
@@ -618,12 +624,12 @@ html {
   flex-order: 2; }
   @media (max-width: 1000px) {
     .support a {
-      background-color: #e5e5ff !important; } }
+      background-color: #f2f2ff; } }
   @media (min-width: 1000px) {
     .support a {
-      background-color: #f2f2ff !important; } }
-  .support a:hover, .support a:active {
-    background-color: #ccccff !important; }
+      background-color: #e5e5ff; } }
+  .support a:hover, .support > a:active {
+    background-color: #d8d8ff; }
 
 .button {
   border: none;
@@ -669,3 +675,21 @@ html {
     background: -o-radial-gradient(center, ellipse cover, #b2b2e0 22%, #9999d6 100%);
     background: -ms-radial-gradient(center, ellipse cover, #b2b2e0 22%, #9999d6 100%);
     background: radial-gradient(center, ellipse cover, #b2b2e0 22%, #9999d6 100%); }
+
+.message {
+  margin: .5rem -.5rem;
+  padding: .5rem;
+  border: 2px solid rgba(198, 180, 189, 0.3);
+  border-left: none;
+  border-right: none;
+  box-shadow: inset 2px 3px 0px rgba(173, 157, 165, 0.4);
+  background-color: #f8e4ee;
+  text-align: left; }
+
+.error {
+  box-shadow: inset 2px 2px 10px #4c0000;
+  border: #7f0000; }
+
+.required {
+  box-shadow: inset 2px 2px 10px #990000;
+  border: #990000; }

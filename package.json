@@ -9,12 +9,19 @@
     "locomotive": "0.3.x",
     "express": "3.x.x",
     "connect-powered-by": "0.1.x",
-    "ect": "",
+    "ejs": "",
+    "ejs-locals": "",
     "jasmine-node": "",
     "cloudinary": "",
     "validator": "",
     "passport": "",
     "requirejs": "",
-    "locomotive-mongoose": "~0.1.0"
+    "locomotive-mongoose": "~0.1.0",
+    "mongoose": "",
+    "pwd": "0.0.2",
+    "mongoose-types": "~1.0.3",
+    "passport-local": "~0.1.6",
+    "connect-flash": "~0.1.1",
+    "consolidate": "~0.9.1"
   }
 }

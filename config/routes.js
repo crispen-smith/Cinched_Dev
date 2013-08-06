@@ -22,7 +22,7 @@ module.exports = function routes() {
   this.match('lingerie/:id/:mode', 'lingerie#main', {as: 'lingerie'});
   this.match('wardrobe/:id/:mode', 'wardrobe#main', {as: 'wardrobe'});
   
-  this.match('/login', 'login#present', {as: 'login', via: "get"});
-  this.match('/login/attempt', 'login#attempt', {as: 'loginAttempt', via: "post"})
+  this.match('/login', 'user#login', {as: 'login', via: "get"});
+  this.match('/login/attempt', 'user#verify', {as: 'loginAttempt', via: "post"})
   
 }
