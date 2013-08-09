@@ -2,15 +2,15 @@ var locomotive 	= require('locomotive')
   , Controller 	= locomotive.Controller
   ,passport  	= require('passport');
 
-var userController = new Controller();
+var AccountController = new Controller();
 
 var Account = require('../models/account');
 
-userController.login = function() {
+AccountController.loginForm = function() {
   this.render('login', {info: this.req.flash('info'), warning: this.req.flash('error')});
 }
 
-userController.verify = function() {
+AccountController.verify = function() {
 	
 	this.user = this.param('user');
 	this.password = this.param('password');
@@ -25,7 +25,7 @@ userController.verify = function() {
 }
 
 
-userController.show = function () {
+AccountController.show = function () {
 	console.log("Account#show called");
 	if(!this.req.isAuthenticated()) {
 		console.log("is authenticated returned false, redirecting...");
@@ -38,13 +38,13 @@ userController.show = function () {
 };
 
 
-userController.new = function() {
+AccountController.new = function() {
 	this.render();
 	
 };
 
 
-userController.create = function() {
+AccountController.create = function() {
 	var account = new Account();
 	console.log("Trying to create account for " + this.param('email'));
 	
@@ -64,6 +64,11 @@ userController.create = function() {
 	this.redirect('/login');
 };
 
-userController.logout = function() {}
+AccountController.logout = function() {
+	this.req.logout();
+	this.req.flash('info', 'you have successfully logged out.');
+	this.redirect('/login');
+	
+}
 
-module.exports = userController;
+module.exports = AccountController;
