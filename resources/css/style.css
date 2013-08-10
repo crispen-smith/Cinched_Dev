@@ -299,9 +299,9 @@ html {
   @media (max-width: 1250px) {
     html {
       font-size: 10px; } }
-  @media (min-width: 1250px) and (max-width: 1300px) {
+  @media (min-resolution: 110) {
     html {
-      font-size: 13px; } }
+      font-size: 75%; } }
 
 body {
   height: 100%; }

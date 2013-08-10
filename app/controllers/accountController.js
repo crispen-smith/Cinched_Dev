@@ -6,7 +6,12 @@ var AccountController = new Controller();
 
 var Account = require('../models/account');
 
-AccountController.loginForm = function() {
+AccountController.login = function() {
+		  passport.authenticate('local', {
+		    successRedirect: this.urlFor({ action: 'show' }),
+		    failureRedirect: this.urlFor({ action: 'login' }) }
+		  )(this.__req, this.__res, this.__next);
+		};
   this.render('login', {info: this.req.flash('info'), warning: this.req.flash('error')});
 }
 
