@@ -1,10 +1,69 @@
-<% block('title', 'Cinched Tight, Create') %>
-<% block('description', 
-          'Account creation for Cinched Tight') %>
-<% block('data-main', 'main.js'); %>
+<% block('title', 'Cinched Tight, Create') %> <% block('description',
+'Account creation for Cinched Tight') %> <% block('data-main',
+'main.js'); %> <% layout('../../layouts/layout.ejs') -%>
 
-<% layout('../../layouts/layout.ejs') -%>
+<div class="formTopContainer scrollDown">
+	<div class="formContainer">
+		<form action="<%-createPath() %>" id="accountForm" method="post">
+			<div class="titleFrame">
+				<h2>Register</h2>
+				<p>Please use this form to create an account.</p>
+				<% if( warning.length >= 1) { %>
+				<div class="message">
+					<%- info %> The system was not able to create your account. The
+					error message was: <strong><%- warning %></strong>
+				</div>
+				<% } %>
+				</p>
+			</div>
+			<div id="userWidget" class="textWidget">
+				<div class="contentFrame">
+					<label for="email" class="textLabel">Email:</label> <input
+						type="text" name="email" class="textInput" id="email">
+				</div>
+			</div>
+			<div id="firstNameWidget" class="textWidget">
+				<div class="contentFrame">
+					<label for="firstName" class="textLabel">First Name:</label> <input
+						type="text" name="name.first" class="textInput" id="firstName">
+				</div>
+			</div>
+			<div id="lastNameWidget" class="textWidget">
+				<div class="contentFrame">
+					<label for="lastName" class="textLabel">Last Name:</label> <input
+						type="text" name="name.last" class="textInput" id="lastName">
+				</div>
+			</div>
 
-<div id="container">
-NEW action, account controller.
+			<div id="passwordWidget" class="textWidget">
+				<div class="contentFrame">
+					<label for="password" class="textLabel">Password</label> <input
+						type="password" name="password" id="password" class="textInput">
+				</div>
+			</div>
+
+			<div id="confirmPasswordWidget" class="textWidget">
+				<div class="contentFrame">
+					<label for="confirmPassword" class="textLabel">Confirm
+						Password</label> <input type="password" name="confirmPassword"
+						id="confirmPassword" class="textInput">
+				</div>
+			</div>
+
+      <div id="accessWidget" class="textWidget">
+        <div class="contentFrame">
+          <label for="access" class="textLabel">Access Level</label> 
+          <select name="access" id="access" class="textInput">
+            <option value="user">User</option>
+            <option value="admin">Admin</option>
+           </select>
+        </div>
+      </div>
+
+			<div id="submitWidget" class="submitWidget">
+				<input type="submit" name="login" class="button login"
+					value="REGISTER">
+			</div>
+		</form>
+	</div>
 </div>

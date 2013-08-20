@@ -20,7 +20,7 @@
 /* Honestly, this is so close to nineTenths that there's no real value to including it, but it's here for completion. */
 /* Ratios */
 /*PPI Ratios */
-.greeting, .parting, .navbar ul li a, #menuButton, #loginForm .textWidget, #loginForm .titleFrame {
+.greeting, .parting, .navbar ul li a, #menuButton, #accountForm .textWidget, #accountForm .titleFrame {
   /* A border to fake drop shadow style pooling which isn't working as desired in this context. */
   border-radius: 5%;
   border: 2px solid #ebd5e1;
@@ -299,9 +299,9 @@ html {
   @media (max-width: 1250px) {
     html {
       font-size: 10px; } }
-  @media (min-resolution: 110) {
+  @media (min-width: 1250px) and (max-width: 1300px) {
     html {
-      font-size: 75%; } }
+      font-size: 13px; } }
 
 body {
   height: 100%; }
@@ -548,27 +548,28 @@ body {
     #menuButton {
       display: none; } }
 
-#loginForm {
+#accountForm {
   z-index: 200;
   position: absolute;
   width: 22rem;
   height: 26.75rem;
   margin-left: -11rem;
+  overflow: scroll;
   margin-top: -13.375rem;
   top: 50%;
   left: 50%; }
   @media (min-width: 1000px) {
-    #loginForm {
+    #accountForm {
       margin-left: -12rem; } }
-  #loginForm .textWidget, #loginForm .submitWidget, #loginForm .titleFrame {
+  #accountForm .textWidget, #accountForm .submitWidget, #accountForm .titleFrame {
     position: relative;
     width: 98%;
     margin: .25rem;
     text-align: center;
     padding: .5rem; }
-  #loginForm .textWidget, #loginForm .titleFrame {
+  #accountForm .textWidget, #accountForm .titleFrame {
     background-color: white; }
-    #loginForm .textWidget:after, #loginForm .textWidget:before, #loginForm .titleFrame:after, #loginForm .titleFrame:before {
+    #accountForm .textWidget:after, #accountForm .textWidget:before, #accountForm .titleFrame:after, #accountForm .titleFrame:before {
       position: absolute;
       z-index: 90;
       left: 0;
@@ -576,21 +577,21 @@ body {
       right: 0;
       bottom: 0;
       content: ""; }
-    #loginForm .textWidget:after, #loginForm .titleFrame:after {
+    #accountForm .textWidget:after, #accountForm .titleFrame:after {
       box-shadow: 0 2px 3px 0px #94878e; }
-  #loginForm .textWidget .contentFrame {
+  #accountForm .textWidget .contentFrame {
     position: relative;
     z-index: 200; }
-  #loginForm .textWidget label, #loginForm .textWidget input {
+  #accountForm .textWidget label, #accountForm .textWidget input {
     font-family: 'Cantata One', serif;
     font-style: normal;
     font-weight: 200;
     font-size: 1rem;
     font-size: 1.2rem; }
-  #loginForm .textWidget input {
+  #accountForm .textWidget input {
     padding: .25rem 1rem;
     width: 90%; }
-  #loginForm .titleFrame H2 {
+  #accountForm .titleFrame H2 {
     font-family: 'cinchedTight', cursive;
     font-style: normal;
     font-weight: 400;
@@ -598,7 +599,7 @@ body {
     font-size: 2rem;
     font-weight: 600;
     margin-bottom: .125rem; }
-  #loginForm .titleFrame p {
+  #accountForm .titleFrame p {
     line-height: 1.25rem;
     padding: 0 1rem;
     text-align: left;
@@ -652,7 +653,6 @@ html {
   appearance: none; }
   @media (min-width: 1000px) {
     .button {
-      line-height: 1.375rem;
       border-radius: .375rem;
       font-size: 2rem;
       padding: 1rem; } }

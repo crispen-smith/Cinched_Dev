@@ -1,28 +1,50 @@
-<% block('title', 'Cinched Tight, Login') %>
-<% block('description', 
-          'Login Page for Cinched Tight, manage your account, view your order history and benefit from other features on our web site.') %>
-<% block('data-main', 'main.js'); %>
+<% block('title', 'Cinched Tight, Login') %> 
+<% block('description',
+  'Login Page for Cinched Tight, manage your account, view your order history and benefit from other features on our web site.') %> 
+<% block('data-main', 'main.js'); %> 
+<% layout('../../layouts/layout.ejs') %>
 
-<% layout('../../layouts/layout.ejs') -%>
+<div class="formTopContainer scrollDown">
+	<div class="formContainer">
 
-
-<form action = "<%-loginAttemptPath() %>" id="accountForm" method="post">
-	<div class="titleFrame"><h2>Login</h2>
-    <p>Please use this form to log in.</p><p>Logging allows you to access your account in order to track order progress and take advantage of other member benefits.</p>
-  </div>
-	<div id="userWidget" class="textWidget">
-  	<div class="contentFrame">
-    	<label for="user" class = "textLabel">User Name</label>
-      <input type="text" name="user" class="textInput" id="user">
-  	</div>
+		<form action="<%-loginAttemptPath() %>" id="accountForm" method="post">
+			<div class="titleFrame">
+				<h2>Login</h2>
+				<p>Please use this form to log in.</p>
+				<p>Logging in allows you to access your account in order to track
+					order progress and take advantage of other member benefits. </p>
+         <% if(
+          warning.length >= 1) { %>
+          </p>
+        <div class="message">
+         The system was not able to log you in. The error message was: <strong><%- warning %></strong>
+        </div>
+        <% } %>
+        <% if(
+          info.length >= 1) { %>
+          </p>
+        <div class="message">
+         You need to log in before completing this process. Please note:  <strong><%- info %></strong>
+        </div>
+        <% } %>
+        
+					
+			</div>
+			<div id="userWidget" class="textWidget">
+				<div class="contentFrame">
+					<label for="email" class="textLabel">User Name</label> <input
+						type="text" name="email" class="textInput" id="user">
+				</div>
+			</div>
+			<div id="passwordWidget" class="textWidget">
+				<div class="contentFrame">
+					<label for="password" class="textLabel">Password</label> <input
+						type="password" name="password" id="password" class="textInput">
+				</div>
+			</div>
+			<div id="submitWidget" class="submitWidget">
+				<input type="submit" name="login" class="button login" value="LOGIN">
+			</div>
+		</form>
 	</div>
-  <div id="passwordWidget" class = "textWidget" >
-    <div class="contentFrame">
-      <label for="password" class = "textLabel">Password</label>
-      <input type="password" name="password" id="password" class="textInput">
-    </div>
-  </div>
-  <div id="submitWidget" class="submitWidget">
-  	<input type = "submit" name="login" class="button login" value= "LOGIN">
-  </div>
-</form>
+</div>

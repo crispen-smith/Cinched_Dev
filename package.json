@@ -22,6 +22,7 @@
     "mongoose-types": "~1.0.3",
     "passport-local": "~0.1.6",
     "connect-flash": "~0.1.1",
-    "consolidate": "~0.9.1"
+    "consolidate": "~0.9.1",
+    "q": "~0.9.6"
   }
 }

@@ -16,13 +16,11 @@ module.exports = function routes() {
   this.match('lingerie/:id/:mode', 'lingerie#main', {as: 'lingerie'});
   this.match('wardrobe/:id/:mode', 'wardrobe#main', {as: 'wardrobe'});
   
-  this.resource('account');
-  this.match('register', 'account#new', {via: 'get'});
-  this.match('login', 'account#loginForm', {via: 'get', as: 'loginAttempt'});
-  this.match('login', passport.authenticate('local', {
-	  successRedirect: '/account',
-	  failureRedirect: '/login',
-	  failureFlash: true	
-  }), {via: 'post'});
-  this.match('logout', 'account#logout');
+  this.match('account', 'account#show', {via: 'get', as: "show"});
+  this.match('register', 'account#new', {via: 'get', as: "register"});
+  this.match('register', 'account#create', {via: 'post', as: "create"});
+  this.match('login', 'account#loginForm', {via: 'get', as: 'loginForm'});
+  this.match('login', 'account#loginAttempt', {via: 'post', as: 'loginAttempt'});
+  this.match('logout', 'account#logout', { as: "logout" });
 }
+     

@@ -1,0 +1,11 @@
+<% block('title', 
+  'Cinched Tight, Account: ' + user.fullName) %> 
+<% block('description',
+  'Account for ' + user.fullName + ' at Cinched Tight') %> 
+ <% block('data-main',
+  'main.js'); %> 
+ <% layout('../../layouts/layout.ejs') -%>
+ 
+ <h1 class="title--vh1">User: <%-user.fullName %></h1>
+ <p>Access Level: <%- user.access %></p>
+ 

@@ -20,7 +20,7 @@
 /* Honestly, this is so close to nineTenths that there's no real value to including it, but it's here for completion. */
 /* Ratios */
 /*PPI Ratios */
-.greeting, .parting, .navbar ul li a, #menuButton, #loginForm .textWidget, #loginForm .titleFrame {
+.greeting, .parting, .navbar ul li a, #menuButton, #accountForm .textWidget, #accountForm .titleFrame {
   /* A border to fake drop shadow style pooling which isn't working as desired in this context. */
   border-radius: 5%;
   border: 2px solid #ebd5e1;
@@ -317,8 +317,7 @@ body {
   cursor: pointer;
   display: none; }
   #screen.open {
-    display: block;
-    cursor: progress; }
+    display: block; }
 
 .greeting, .parting {
   z-index: 40;
@@ -418,7 +417,8 @@ body {
       margin: 0; } }
   @media (min-width: 1000px) {
     .container {
-      position: absolute; } }
+      position: absolute;
+      top: 7rem; } }
 
 .navbar {
   z-index: 200;
@@ -444,7 +444,7 @@ body {
       text-align: center; } }
   @media (min-width: 1000px) {
     .navbar {
-      margin-top: -1.9rem;
+      top: -7rem;
       width: 100%; } }
   @media (max-width: 1000px) {
     .navbar.closed {
@@ -548,27 +548,51 @@ body {
     #menuButton {
       display: none; } }
 
-#loginForm {
-  z-index: 200;
+.formTopContainer {
   position: absolute;
   width: 22rem;
   height: 26.75rem;
-  margin-left: -11rem;
-  margin-top: -13.375rem;
   top: 50%;
-  left: 50%; }
+  left: 50%;
+  margin-left: -11rem;
+  overflow: scroll;
+  margin-top: -13.375rem; }
   @media (min-width: 1000px) {
-    #loginForm {
+    .formTopContainer {
       margin-left: -12rem; } }
-  #loginForm .textWidget, #loginForm .submitWidget, #loginForm .titleFrame {
+  .formTopContainer.scrollDown:after {
+    content: "";
+    position: absolute;
+    height: 2rem;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: -moz-linear-gradient(bottom, #f8e1ed 0%, rgba(248, 225, 237, 0) 100%);
+    background: -webkit-linear-gradient(bottom, #f8e1ed 0%, rgba(248, 225, 237, 0) 100%);
+    background: -o-linear-gradient(bottom, #f8e1ed 0%, rgba(248, 225, 237, 0) 100%);
+    background: -ms-linear-gradient(bottom, #f8e1ed 0%, rgba(248, 225, 237, 0) 100%);
+    background: linear-gradient(bottom, #f8e1ed 0%, rgba(248, 225, 237, 0) 100%);
+    z-index: 200; }
+
+.formContainer {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+  overflow: scroll; }
+
+#accountForm {
+  width: 22rem; }
+  #accountForm .textWidget, #accountForm .submitWidget, #accountForm .titleFrame {
     position: relative;
     width: 98%;
     margin: .25rem;
     text-align: center;
     padding: .5rem; }
-  #loginForm .textWidget, #loginForm .titleFrame {
+  #accountForm .textWidget, #accountForm .titleFrame {
     background-color: white; }
-    #loginForm .textWidget:after, #loginForm .textWidget:before, #loginForm .titleFrame:after, #loginForm .titleFrame:before {
+    #accountForm .textWidget:after, #accountForm .textWidget:before, #accountForm .titleFrame:after, #accountForm .titleFrame:before {
       position: absolute;
       z-index: 90;
       left: 0;
@@ -576,21 +600,21 @@ body {
       right: 0;
       bottom: 0;
       content: ""; }
-    #loginForm .textWidget:after, #loginForm .titleFrame:after {
+    #accountForm .textWidget:after, #accountForm .titleFrame:after {
       box-shadow: 0 2px 3px 0px #94878e; }
-  #loginForm .textWidget .contentFrame {
+  #accountForm .textWidget .contentFrame {
     position: relative;
     z-index: 200; }
-  #loginForm .textWidget label, #loginForm .textWidget input {
+  #accountForm .textWidget label, #accountForm .textWidget input {
     font-family: 'Cantata One', serif;
     font-style: normal;
     font-weight: 200;
     font-size: 1rem;
     font-size: 1.2rem; }
-  #loginForm .textWidget input {
+  #accountForm .textWidget input {
     padding: .25rem 1rem;
     width: 90%; }
-  #loginForm .titleFrame H2 {
+  #accountForm .titleFrame H2 {
     font-family: 'cinchedTight', cursive;
     font-style: normal;
     font-weight: 400;
@@ -598,11 +622,15 @@ body {
     font-size: 2rem;
     font-weight: 600;
     margin-bottom: .125rem; }
-  #loginForm .titleFrame p {
+  #accountForm .titleFrame p {
     line-height: 1.25rem;
     padding: 0 1rem;
     text-align: left;
     margin-bottom: .25rem; }
+
+.title--vh1 {
+  font-size: 2rem;
+  font-weight: bold; }
 
 /* _appearances.scss, provides styling for classes. */
 html {
@@ -652,7 +680,6 @@ html {
   appearance: none; }
   @media (min-width: 1000px) {
     .button {
-      line-height: 1.375rem;
       border-radius: .375rem;
       font-size: 2rem;
       padding: 1rem; } }

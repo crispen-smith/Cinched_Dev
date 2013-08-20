@@ -1,0 +1,49 @@
+<% block('title', 'Cinched Tight, Login') %>
+<% block('description', 
+          'Login Page for Cinched Tight, manage your account, view your order history and benefit from other features on our web site.') %>
+<% block('data-main', 'main.js'); %>
+
+<% layout('../../layouts/layout.ejs') -%>
+
+
+<form action = "<%-loginAttemptPath() %>" id="accountForm" method="post">
+	<div class="titleFrame"><h2>Login</h2>
+    <p>It appears that you entered an incorrect user name and/or password..</p>
+  </div>
+	<div id="userWidget" class="textWidget">
+  	<div class="contentFrame">
+    	<label for="user" class = "textLabel">User Name</label>
+      <input type="text" name="user" class="textInput <% if(userMessageFlag == 1) { %> error <% } %>" id="user" value="<%= user %>">
+      <% if(userMessageFlag == 1) { %>
+      <div class="message">
+      	<% if(userMessageMode == "wrong") { %>
+          Oops, it looks like <strong> <%= user %></strong> is not a registered user name, or your password might be wrong.  
+        <% } %>
+        <% if(userMessageMode == "missing") { %>
+          Ack! Well, I'm not quite sure how, but it looks like the user name was missing.  Could you fix that and try again?  
+        <% } %>
+      </div>
+      <% } %>
+  	</div>
+	</div>
+  <div id="passwordWidget" class = "textWidget" >
+    <div class="contentFrame">
+      <label for="password" class = "textLabel">Password</label>
+      <input type="password" name="password" id="password" class="textInput required">
+      <% if(passwordMessageFlag == 1) { %>
+      <div class="message">
+        <% if(passwordMessageMode == "wrong") { %>
+          Is it possible you entered your password incorecly?  Sadly, I have to ask you to try again.
+        <% } %>
+        <% if(passwordMessageMode == "missing") { %>
+          Ack! Well, I'm not quite sure how, but it looks like the password was missing.  Could you fix that and try again?  
+        <% } %>
+      </div>
+      <% } %>
+
+    </div>
+  </div>
+  <div id="submitWidget" class="submitWidget">
+  	<input type = "submit" name="login" class="button login" value= "LOGIN">
+  </div>
+</form>

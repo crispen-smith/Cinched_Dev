@@ -14,7 +14,7 @@
   	<div class="contentFrame">
     	<label for="user" class = "textLabel">User Name</label>
       <input type="text" name="user" class="textInput <% if(userMessageFlag == 1) { %> error <% } %>" id="user" value="<%= user %>">
-      <% if(userMessageFlag == 1) { %>
+      <% if(info) { %>
       <div class="message">
       	<% if(userMessageMode == "wrong") { %>
           Oops, it looks like <strong> <%= user %></strong> is not a registered user name, or your password might be wrong.  
